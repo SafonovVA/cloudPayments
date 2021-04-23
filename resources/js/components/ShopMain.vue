@@ -107,14 +107,6 @@
                 </div>
                 <shop-product></shop-product>
             </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-6" style="background: aqua; text-align: center; padding: 1vw 0 1vw 0;">В bootstrap стоят две колонки col-xs-6, но как сделать что бы высота менялась пропорционально</div>
-                <div class="col-md-6 col-sm-6 col-xs-6" style="background: aquamarine; text-align: center;padding: 1vw 0 1vw 0;">В bootstrap стоят две колонки col-xs-6, но как сделать что бы высота менялась пропорционально</div>
-                <div class="col-md-6 col-sm-6 col-xs-6" style="background: beige; text-align: center;padding: 1vw 0 1vw 0;">В bootstrap стоят две колонки col-xs-6, но как сделать что бы высота менялась пропорционально</div>
-                <div class="col-md-6 col-sm-6 col-xs-6" style="background: blueviolet; text-align: center;padding: 1vw 0 1vw 0;">В bootstrap стоят две колонки col-xs-6, но как сделать что бы высота менялась пропорционально</div>
-                <div class="col-md-6 col-sm-6 col-xs-6" style="background: aquamarine; text-align: center;padding: 1vw 0 1vw 0;">В bootstrap стоят две колонки col-xs-6, но как сделать что бы высота менялась пропорционально</div>
-                <div class="col-md-6 col-sm-6 col-xs-6" style="background: cyan; text-align: center;padding: 1vw 0 1vw 0;">В bootstrap стоят две колонки col-xs-6, но как сделать что бы высота менялась пропорционально</div>
-            </div>
         </div>
     </div>
 </template>
