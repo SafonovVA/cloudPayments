@@ -21,8 +21,8 @@
     <nav-bar :navbar-brand-title='@json(config('app.name', 'Cloud Payments'))'></nav-bar>
     <div class="container-fluid">
         <div class="row">
-            <side-bar></side-bar>
-            <shop-main></shop-main>
+            <side-bar :categories='@json($categories)'></side-bar>
+            <shop-main :products='@json($products)'></shop-main>
         </div>
     </div>
 

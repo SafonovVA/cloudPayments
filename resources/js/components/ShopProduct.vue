@@ -1,10 +1,9 @@
 <template>
-    <div class="col-sm shop-product">
+    <div class="col-sm shop-product" v-show="showProduct">
         <div class="card" style="width: 12rem;">
-            <img :src="'/img/shop.jpg'" class="card-img-top" alt="shop">
+            <img :src="product.image" class="card-img-top" alt="shop" height="150px" width="">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <h5 class="card-title">{{ product.name }}</h5>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
@@ -13,7 +12,27 @@
 
 <script>
 export default {
-name: "ShopProduct"
+    name: "ShopProduct",
+    props: {
+        product: Object,
+        required: true
+    },
+    data() {
+        return {
+            showProduct: true,
+        }
+    },
+    mounted() {
+        let self = this;
+
+        this.$root.$on('showAllProducts', function() {
+            self.showProduct = true;
+        });
+
+        this.$root.$on('showProductsByCategoryId', function(arrayOfId) {
+            self.showProduct = !!arrayOfId.includes(+self.product.category_id);
+        });
+    }
 }
 </script>
 
