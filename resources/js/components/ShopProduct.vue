@@ -23,12 +23,8 @@ export default {
     data() {
         return {
             showProduct: true,
-            defaultExchange: 'KZT'
-        }
-    },
-    computed: {
-        productPrice: function () {
-            return this.product.price;
+            defaultExchange: 'KZT',
+            productPrice: this.product.price
         }
     },
     mounted() {
@@ -41,6 +37,21 @@ export default {
         this.$root.$on('showProductsByCategoryId', function(arrayOfId) {
             self.showProduct = !!arrayOfId.includes(+self.product.category_id);
         });
+
+        this.$root.$on('setExchangeValues', function(data) {
+            if (data.title === 'RUB') {
+                self.defaultExchange = data.title;
+                self.productPrice /= data.value;
+            } else {
+                self.defaultExchange = 'KZT';
+                self.productPrice = self.product.price;
+            }
+        });
+    },
+    watch: {
+        productPrice: function() {
+            this.productPrice = (+this.productPrice).toFixed(2);
+        }
     }
 }
 </script>

@@ -87,7 +87,9 @@ export default {
         exchange: async function() {
             if (this.exchange === 'RUB') {
                 const response = (await axios.get(`/api/exchange-rate/${this.exchange}`)).data;
-                console.log(response);
+                this.$root.$emit('setExchangeValues', response.data);
+            } else {
+                this.$root.$emit('setExchangeValues', { title: 'KZT' });
             }
         }
     }
