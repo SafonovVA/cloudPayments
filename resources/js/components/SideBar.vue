@@ -29,6 +29,20 @@
                     </a>
                 </li>
             </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                Exchange
+            </h6>
+            <div class="btn-group btn-group-toggle pl-3" data-toggle="buttons">
+                <label class="btn btn-primary active">
+                    <input type="radio" name="exchange" id="exchange-kzt" autocomplete="off" value="KZT" v-model="exchange" checked>
+                    KZT
+                </label>
+                <label class="btn btn-primary">
+                    <input type="radio" name="exchange" id="exchange-rub" autocomplete="off" value="RUB" v-model="exchange">
+                    RUB
+                </label>
+            </div>
         </div>
     </nav>
 </template>
@@ -37,13 +51,17 @@
 export default {
     name: "SideBar",
     props: {
-        categories: Array,
-        required: true
+        categories: {
+            type: Array,
+            required: true
+        },
+        exchangeType: 'KZT',
     },
     data() {
         return {
             allCategories: true,
-            checkedCategories: []
+            checkedCategories: [],
+            exchange: this.exchangeType,
         }
     },
     watch: {
@@ -66,6 +84,12 @@ export default {
             }
 
         },
+        exchange: async function() {
+            if (this.exchange === 'RUB') {
+                const response = (await axios.get(`/api/exchange-rate/${this.exchange}`)).data;
+                console.log(response);
+            }
+        }
     }
 }
 </script>

@@ -4,7 +4,8 @@
             <img :src="product.image" class="card-img-top" alt="shop" height="150px" width="">
             <div class="card-body">
                 <h5 class="card-title">{{ product.name }}</h5>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div>{{ defaultExchange }} <b>{{ productPrice }}</b></div>
+                <a href="#" class="btn btn-light float-right">Buy</a>
             </div>
         </div>
     </div>
@@ -14,12 +15,20 @@
 export default {
     name: "ShopProduct",
     props: {
-        product: Object,
-        required: true
+        product: {
+            type: Object,
+            required: true
+        }
     },
     data() {
         return {
             showProduct: true,
+            defaultExchange: 'KZT'
+        }
+    },
+    computed: {
+        productPrice: function () {
+            return this.product.price;
         }
     },
     mounted() {

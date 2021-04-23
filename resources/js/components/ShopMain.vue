@@ -15,8 +15,10 @@
 export default {
     name: "ShopMain",
     props: {
-        products: Array,
-        required: true
+        products: {
+            type: Array,
+            required: true
+        }
     },
 }
 </script>
