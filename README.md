@@ -55,4 +55,13 @@
     ```bash
     * * * * * cd /path/to/your/project && php artisan schedule:run >> /dev/null 2>&1
     ```
+- Установить права серверу на файлы проекта:
+    ```bash
+  sudo chown -R www-data:www-data /path/to/your/project
+  sudo usermod -a -G www-data ubuntu
+  sudo find /path/to/your/project -type f -exec chmod 644 {} \;  
+  sudo find /path/to/your/project -type d -exec chmod 755 {} \;
+  sudo chgrp -R www-data /path/to/your/project/storage /path/to/your/project/bootstrap/cache
+  sudo chmod -R ug+rwx /path/to/your/project/storage /path/to/your/project/bootstrap/cache
+    ```
 
