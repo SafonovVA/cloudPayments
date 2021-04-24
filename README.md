@@ -26,7 +26,7 @@
     DB_DATABASE=/absolute/path/to/database.sqlite
     DB_FOREIGN_KEYS=true
     ```
-  - PostgeSQL, MySQL - создать базу, установить пользователя и роль для него, Подключить в файле `.env`:
+  - PostgreSQL, MySQL - создать базу, установить пользователя и роль для него, Подключить в файле `.env`:
     ```dotenv
     DB_CONNECTION=mysql # или нужный драйвер
     DB_HOST=local # или необходимый где расположена база
