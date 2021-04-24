@@ -3,8 +3,8 @@
         <div class="pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Products</h1>
         </div>
-        <div class="container">
-            <div class="row">
+        <div class="container-fluid">
+            <div class="d-flex flex-wrap">
                 <shop-product v-for="(product, id) of products" :key="id" :product="product"></shop-product>
             </div>
         </div>

@@ -14,6 +14,7 @@
 
     <!--Scripts-->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
 
 </head>
 <body class="antialiased">
@@ -25,7 +26,6 @@
             <shop-main :products='@json($products)'></shop-main>
         </div>
     </div>
-
 </div>
 </body>
 </html>

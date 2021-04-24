@@ -9,4 +9,9 @@ class ExchangeRate extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'value'];
+
+    public function transactionHistories() : Illuminate\Support\Collection
+    {
+        return $this->hasMany(TransactionHistories::class);
+    }
 }
