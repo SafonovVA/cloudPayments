@@ -55,7 +55,11 @@ export default {
             type: Array,
             required: true
         },
-        exchangeType: 'KZT',
+        exchangeType: {
+            type: Array,
+            default: 'KZT',
+            required: true
+        },
     },
     data() {
         return {
@@ -70,7 +74,6 @@ export default {
                 this.checkedCategories = [];
                 this.$root.$emit('showAllProducts');
             }
-
         },
         checkedCategories: function () {
             if (this.allCategories === true && this.checkedCategories.length !== 0) {
@@ -82,7 +85,6 @@ export default {
                 this.allCategories = true;
                 this.$root.$emit('showAllProducts');
             }
-
         },
         exchange: async function() {
             if (this.exchange === 'RUB') {

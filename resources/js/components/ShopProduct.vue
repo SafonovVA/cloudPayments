@@ -12,7 +12,7 @@
                         <div class="input-group-prepend">
                             <button class="btn btn-sm btn-secondary" @click="decreaseProductQuantity">-</button>
                         </div>
-                        <input type="text" class="form-control" :value="productQuantity">
+                        <input type="text" class="form-control" v-model="productQuantity">
                         <div class="input-group-append">
                             <button class="btn btn-sm btn-secondary" @click="increaseProductQuantity">+</button>
                         </div>
@@ -21,8 +21,6 @@
                         <a href="#" class="btn btn-light float-right" @click="pay">Buy</a>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -62,18 +60,15 @@ export default {
         decreaseProductQuantityByValue(count) {
             this.productQuantity -= count;
         },
-        /*async pay() {
+        async pays() {
             console.log('действие при успешной оплате');
-            console.log(typeof +this.product.id);
-            console.log(typeof +this.productQuantity);
-            console.log(typeof this.defaultExchange);
-            await axios.patch(`/api/action-after-purchase`, {
+            await axios.patch(`/api/purchase-success`, {
                 productId: +this.product.id,
                 count: +this.productQuantity,
                 exchangeTitle: this.defaultExchange,
             });
             window.location.reload();
-        },*/
+        },
         pay() {
             const self = this;
             const widget = new cp.CloudPayments();
@@ -103,7 +98,7 @@ export default {
                     },
                     onComplete: async function (paymentResult, options) {
                         if (paymentResult.success === true) {
-                            await axios.patch(`/api/action-after-purchase`, {
+                            await axios.patch(`/api/purchase-success`, {
                                 productId: +self.product.id,
                                 count: +self.productQuantity,
                                 exchangeTitle: self.defaultExchange,
@@ -139,6 +134,11 @@ export default {
     watch: {
         productPrice: function() {
             this.productPrice = (+this.productPrice).toFixed(2);
+        },
+        productQuantity: function() {
+            if (this.productQuantity > +this.product.count) {
+                this.productQuantity = +this.product.count;
+            }
         }
     }
 }
