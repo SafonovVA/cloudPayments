@@ -11,7 +11,7 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "postinstall": "npm run prod"
+        "post-build": "npm run prod"
     },
     "devDependencies": {
         "axios": "^0.21",
