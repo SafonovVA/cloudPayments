@@ -1,6 +1,6 @@
 <template>
-    <div class="d-flex align-items-stretch p-2">
-        <div class="card" style="width: 12rem;" v-show="showProduct">
+    <div class="p-2" v-show="showProduct">
+        <div class="card" style="width: 12rem;">
             <img :src="product.image" class="card-img-top" alt="shop" height="150px" width="">
             <div class="card-body">
                 <h5 class="card-title">{{ product.name }}</h5>
