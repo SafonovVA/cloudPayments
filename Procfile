@@ -1,2 +1,2 @@
 web: vendor/bin/heroku-php-apache2 public/
-worker: heroku run php artisan schedule:work
+worker: php artisan schedule:work
