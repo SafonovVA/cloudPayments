@@ -55,17 +55,12 @@ export default {
             type: Array,
             required: true
         },
-        exchangeType: {
-            type: Array,
-            default: 'KZT',
-            required: true
-        },
     },
     data() {
         return {
             allCategories: true,
             checkedCategories: [],
-            exchange: this.exchangeType,
+            exchange: 'KZT',
         }
     },
     watch: {

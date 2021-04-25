@@ -1,6 +1,6 @@
 <template>
-    <div class="d-flex align-items-stretch p-2" v-show="showProduct">
-        <div class="card" style="width: 12rem;">
+    <div class="d-flex align-items-stretch p-2">
+        <div class="card" style="width: 12rem;" v-show="showProduct">
             <img :src="product.image" class="card-img-top" alt="shop" height="150px" width="">
             <div class="card-body">
                 <h5 class="card-title">{{ product.name }}</h5>
@@ -47,13 +47,11 @@ export default {
     methods: {
         increaseProductQuantity() {
             if (this.productQuantity < +this.product.count) {
-                console.log(this.productQuantity);
                 this.productQuantity++;
             }
         },
         decreaseProductQuantity() {
             if (this.productQuantity > 1) {
-                console.log(this.productQuantity);
                 this.productQuantity--;
             }
         },
@@ -111,7 +109,7 @@ export default {
         },
     },
     mounted() {
-        let self = this;
+        const self = this;
 
         this.$root.$on('showAllProducts', function() {
             self.showProduct = true;
